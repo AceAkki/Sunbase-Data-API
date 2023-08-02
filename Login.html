@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentication and Display Token</title>
+</head>
+<body>
+<h1>Login</h1>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <br>
+        <button onclick="authenticateAndDisplayToken()">Authenticate</button>
+        <p id="tokenDisplay"></p>
+    </div>
+<a href="file:///E:/Register%20List.html">Register List</a>
+    <script>
+        function authenticateAndDisplayToken() {
+            const url = "https://cors-anywhere.herokuapp.com/https://qa2.sunbasedata.com/sunbase/portal/api/assignment_auth.jsp";
+            const credentials = {
+                login_id: "test@sunbasedata.com",
+                password: "Test@123"
+            };
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(credentials)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Assuming the response contains the token in the 'access_token' field
+                const token = data.access_token;
+                const tokenDisplay = document.getElementById("tokenDisplay");
+                tokenDisplay.textContent = `Bearer Token: ${token}`;
+            })
+            .catch(error => {
+                console.error("Authentication failed:", error);
+            });
+        }
+    </script>
+</body>
+</html>

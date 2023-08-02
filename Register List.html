@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer List</h1>
+<h2><a href="file:///E:/New%20Customer.html">Create New Customer</a></h2>
+<h2><a href="file:///E:/Login.html">Login</a></h2>
+    <table id="customerTable">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Phone</th>
+           
+            <th>Actions</th>
+        </tr>
+    </table>
+
+ <form id="editForm" style="display: none;">
+        <label for="editFirstName">First Name:</label>
+        <input type="text" id="editFirstName" required><br>
+        <label for="editLastName">Last Name:</label>
+        <input type="text" id="editLastName" required><br>
+        <label for="editStreet">Street:</label>
+        <input type="text" id="editStreet" required><br>
+        <label for="editAddress">Address:</label>
+        <input type="text" id="editAddress" required><br>
+        <label for="editCity">City:</label>
+        <input type="text" id="editCity" required><br>
+        <label for="editState">State:</label>
+        <input type="text" id="editState" required><br>
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail" required><br>
+        <label for="editPhone">Phone:</label>
+        <input type="tel" id="editPhone" required><br>
+        <input type="button" value="Save" onclick="saveCustomer()">
+        <input type="button" value="Cancel" onclick="cancelEdit()">
+    </form>
+    <script src="5.js"></script>
+</body>
+</html>
